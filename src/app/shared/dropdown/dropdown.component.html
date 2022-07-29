@@ -1,0 +1,31 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+
+
+  <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton1">
+    <div class="dropdown-item dropdown-item-search" onclick="event.stopPropagation();">
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search" >
+          <div class="input-group-append">
+              <span class="input-group-text h-100">
+                  <img src="/assets/icons/search.svg" alt="" title="Bootstrap">
+              </span>
+          </div>
+      </div>
+  </div>
+    <ng-container *ngFor="let item of filtered;let i=index ">
+      <div class="dropdown-item" *ngIf="item.visible" (click)="onChange(item)" >
+        {{item.name}}
+      </div>
+  </ng-container>
+  <div *ngIf="showStatus" class="dropdown-count text-dark">
+    <span><b>Count:</b> {{_items.length}}</span>
+    <span *ngIf="search"><b>Search Count:</b> {{filtered.length}}</span>
+  </div>
+ </ul>
+</div>
+
+
+

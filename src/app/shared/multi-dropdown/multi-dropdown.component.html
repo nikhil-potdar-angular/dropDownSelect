@@ -1,0 +1,39 @@
+<div class="dropdown">
+  <button
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    id="dropdownMenuButton1"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    Multi Dropdown button
+  </button>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <div
+      class="dropdown-item dropdown-item-search"
+      onclick="event.stopPropagation();"
+    >
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="search" placeholder="Search" />
+        <div class="input-group-append">
+          <span class="input-group-text h-100">
+            <img src="/assets/icons/search.svg" alt="" title="Bootstrap" />
+          </span>
+        </div>
+      </div>
+    </div>
+    <input type="checkbox" [(ngModel)]="isAllChecked" (change)="checkUnckeckAll()" class="ms-3">All
+
+    <ng-container *ngFor="let item of filtered; let i = index">
+     <div class="dropdown-item" >
+        <input type="checkbox" class="me-2" [(ngModel)]="item.checked"  (click)="isAllSelected()"/>
+        <label for="">{{ item.name }}</label>
+      </div>
+    </ng-container>
+    <div class="dropdown-count text-dark">
+      <span><b>Count:</b> {{}</span>
+      <span><b>Search Count:</b> }}</span>
+    </div>
+  </ul>
+</div>
